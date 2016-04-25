@@ -1,0 +1,33 @@
+global_functions:
+  enable !1!:     !x! = True
+  disable !1!:    !x! = False
+  toggle !1!:     !x! = not !x!
+  set !1! to !2!: !1! = !2!
+  if !1! then !2! else then !3!:
+    if !1!:
+      !2!
+    else:
+      !3!
+
+global_commands:
+  look: currentRoom.showDetails()
+  help: printFile(./help.txt)
+  take !1!:
+    addToInventory(currentRoomItems[!1!])
+    removeFromRoom(currentRoomItems[!1!])
+
+variables:
+  hasWrittenOnWall: False
+  wordsOnWall: I have not yet been set
+
+rooms:
+  starting_area:
+    name: The First Room
+
+    desc: This is the first room that you will see in the game. I congradulate you if you have made it this far. |if .hasWrittenOnWall then| Someone has painted the words ".wordsOnWall" onto the wall |else then| The walls are blank. Someone could easily write on them.
+
+    items: key, table |cannot take|, chair |cannot take|
+
+    commands:
+      up: goto next_room
+      write !x! on wall / write !x!: enable .hasWrittenOnWall, set .wordsOnWall to !x!
