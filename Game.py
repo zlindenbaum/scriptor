@@ -16,9 +16,9 @@ class Game(object):
                 print("Game Ended")
                 break
 
-            if self.lastCommand in self.global_commands.keys():
-                eval(self.global_commands[self.lastCommand])
-            elif self.lastCommand in self.player.loc.commands.keys():
+            if self.lastCommand in self.player.loc.commands.keys():
                 eval(self.player.loc.commands[self.lastCommand])
+            elif self.lastCommand in self.global_commands.keys():
+                eval(self.global_commands[self.lastCommand])
             else:
                 print("Sorry, I don't understand what you mean")
