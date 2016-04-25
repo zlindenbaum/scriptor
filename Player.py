@@ -5,3 +5,8 @@ class Player(object):
 
     def goto(self, room):
         self.loc = room
+
+    def addToInv(self, item):
+        self.inv.append(item)
+        if item.takeDesc != "":
+            print item.takeDesc
