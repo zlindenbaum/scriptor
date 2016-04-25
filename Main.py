@@ -26,10 +26,12 @@ rooms = {
 
 player = Player(rooms['r1'])
 
-game = Game(rooms, player)
+game = Game(rooms, player, global_commands = global_commands)
+
 game.player.addToInv(Item(name = "thing 1"))
 game.player.addToInv(Item(name = "thing 2"))
 game.player.addToInv(Item(name = "thing 3"))
 game.player.addToInv(Item(name = "thing 4"))
 game.player.addToInv(Item(name = "a void in your existance"))
+
 game.gameLoop()
