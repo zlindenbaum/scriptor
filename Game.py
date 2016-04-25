@@ -17,9 +17,9 @@ class Game(object):
                 break
 
             if self.lastCommand in self.player.loc.commands.keys():
-                eval(self.player.loc.commands[self.lastCommand])
+                exec(self.player.loc.commands[self.lastCommand])
             elif self.lastCommand in self.global_commands.keys():
-                eval(self.global_commands[self.lastCommand])
+                exec(self.global_commands[self.lastCommand])
             elif self.lastCommand.split(' ', 1)[0] in self.global_commands.keys():
                 exec(self.global_commands[self.lastCommand.split(' ', 1)[0]].replace("!x!", self.lastCommand.split(' ', 1)[1]))
 
