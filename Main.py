@@ -5,7 +5,13 @@ from Item import *
 
 global_commands = {
     "inv": "self.player.printInv()",
-    "look": "print(self.player.loc.desc)"
+    "look": "print(self.player.loc.desc)",
+    "print": "print(\"!x!\")",
+    "take": """
+if self.player.loc.contains(\"!x!\"):
+    self.player.addToInv(self.player.loc.items[\"!x!\"])
+    del self.player.loc.items[\"!x!\"]
+    """
 }
 
 rooms = {
@@ -13,7 +19,10 @@ rooms = {
     Room(
         name = "first room",
         desc = "this is the first room",
-        commands = {"next": "self.player.goto(self.rooms[\"r2\"])"}
+        commands = {"next": "self.player.goto(self.rooms[\"r2\"])"},
+        items = {
+            "bar": Item(name = "an plain bar")
+        }
     ),
 
     "r2":

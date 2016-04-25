@@ -4,7 +4,7 @@ class Player(object):
         self.inv = inv
 
     def printInv(self):
-        print("==========Inventory==========")
+        print("\n==========Inventory==========")
         for item in self.inv:
             print("| " + item.name + " "*(26 - len(item.name)) + "|")
         print("=============================")

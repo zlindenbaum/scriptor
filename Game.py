@@ -20,5 +20,8 @@ class Game(object):
                 eval(self.player.loc.commands[self.lastCommand])
             elif self.lastCommand in self.global_commands.keys():
                 eval(self.global_commands[self.lastCommand])
+            elif self.lastCommand.split(' ', 1)[0] in self.global_commands.keys():
+                exec(self.global_commands[self.lastCommand.split(' ', 1)[0]].replace("!x!", self.lastCommand.split(' ', 1)[1]))
+
             else:
                 print("Sorry, I don't understand what you mean")
