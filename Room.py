@@ -4,3 +4,7 @@ class Room(object):
         self.desc = desc
 
         self.commands = commands
+
+    def printDetails(self):
+        print('\nRoom: ' + self.name)
+        print('Description: ' + self.desc + '\n')    

@@ -3,13 +3,17 @@ from Player import *
 from Room import *
 from Item import *
 
+global_commands = {
+    "inv": "self.player.printInv()",
+    "look": "print(self.player.loc.desc)"
+}
+
 rooms = {
     "r1":
     Room(
         name = "first room",
         desc = "this is the first room",
-        commands = {"next": "self.player.goto(self.rooms[\"r2\"])",
-                    "inv": "self.player.printInv()"}
+        commands = {"next": "self.player.goto(self.rooms[\"r2\"])"}
     ),
 
     "r2":

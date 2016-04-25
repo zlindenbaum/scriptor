@@ -8,8 +8,7 @@ class Game(object):
     def gameLoop(self):
         self.lastCommand = ""
         while True:
-            print('\nRoom: ' + self.player.loc.name)
-            print('Description: ' + self.player.loc.desc + '\n')
+            self.player.loc.printDetails()
 
             self.lastCommand = input()
 
