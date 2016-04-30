@@ -7,10 +7,23 @@ global_commands = {
     "inv": "self.player.printInv()",
     "look": "print(self.player.loc.desc)",
     "print": "print(\"!x!\")",
+
     "take": """
-if self.player.loc.contains(\"!x!\"):
-    self.player.addToInv(self.player.loc.items[\"!x!\"])
-    del self.player.loc.items[\"!x!\"]
+if self.player.loc.contains("!x!"):
+    self.player.addToInv(self.player.loc.items["!x!"])
+    del self.player.loc.items["!x!"]
+    """,
+
+    "examine": """
+if self.player.loc.contains("!x!"):
+    print(self.player.loc.items["!x!"].desc)
+elif "!x!" in [item.ID for item in self.player.inv]:
+    print(self.player.inv[[item.ID for item in self.player.inv].index("!x!")].desc)
+    """,
+
+    "commands": """
+for command, action in self.player.loc.commands.items():
+    print(command)
     """
 }
 
@@ -21,7 +34,12 @@ rooms = {
         desc = "this is the first room",
         commands = {"next": "self.player.goto(self.rooms[\"r2\"])"},
         items = {
-            "bar": Item(name = "an plain bar")
+            "bar": Item(
+                ID = "bar",
+                name = "a bar",
+                desc = "a plain white bar; it doesn't strike you as especially extraordinary",
+                takeDesc = "you slide the bar into your pocket"
+            )
         }
     ),
 

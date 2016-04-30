@@ -26,7 +26,17 @@ rooms:
 
     desc: This is the first room that you will see in the game. I congradulate you if you have made it this far. |if .hasWrittenOnWall then| Someone has painted the words ".wordsOnWall" onto the wall |else then| The walls are blank. Someone could easily write on them.
 
-    items: key, table |cannot take|, chair |cannot take|
+    items:
+      key1:
+        name = (a/the) key
+        desc = a regular old key
+        can see
+	can take
+      table:
+        name = (a/the) table
+	desc = a blank table
+        can see
+        cannot take
 
     commands:
       up: goto next_room
