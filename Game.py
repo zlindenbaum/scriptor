@@ -1,3 +1,5 @@
+import Misc
+
 class Game(object):
     def __init__(self, rooms, player, global_commands = {}):
 
