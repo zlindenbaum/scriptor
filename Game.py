@@ -20,6 +20,8 @@ class Game(object):
 
             if self.lastCommand in self.player.loc.commands.keys():
                 exec(self.player.loc.commands[self.lastCommand])
+            elif self.lastCommand in self.player.loc.connections.keys():
+                exec("self.player.goto(self.rooms[\'" + str(self.player.loc.connections[self.lastCommand]) + "\'])")
             elif self.lastCommand in self.global_commands.keys():
                 exec(self.global_commands[self.lastCommand])
             elif self.lastCommand.split(' ', 1)[0] in self.global_commands.keys():

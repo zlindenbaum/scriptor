@@ -1,11 +1,11 @@
 import Misc
 
 class Room(object):
-    def __init__(self, name = "default room", desc = "a normal looking room", items = [], commands = {}):
+    def __init__(self, name = "default room", desc = "a normal looking room", items = [], commands = {}, connections = {}):
         self.name = name
         self.desc = desc
         self.items = items
-
+        self.connections = connections
         self.commands = commands
 
     def contains(self, itemName):

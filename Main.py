@@ -35,16 +35,16 @@ if "!x!" in Misc.flatten([item.names for item in self.player.inv]):
     """
 }
 
-#TODO make connections list instead of integrating room movements with commands
 rooms = {
     "r1":
     Room(
         name = "first room",
         desc = "this is the first room",
-        commands = {"next": "self.player.goto(self.rooms[\"r2\"])"},
+        # commands = {"next": "self.player.goto(self.rooms[\"r2\"])"},
+        connections = {"next": "r2"},
         items = [
             Item(
-                names = ["bar", "a bar", "the bar"],
+                names = ["a bar", "bar", "the bar"],
                 desc = "a plain white bar; it doesn't strike you as especially extraordinary",
                 takeDesc = "you slide the bar into your pocket"
             )
@@ -55,7 +55,8 @@ rooms = {
     Room(
         name = "second room",
         desc = "this is the second room",
-        commands = {"back": "self.player.goto(self.rooms[\"r1\"])"}
+        # commands = {"back": "self.player.goto(self.rooms[\"r1\"])"}
+        connections = {"back": "r1"}
     )
 }
 
