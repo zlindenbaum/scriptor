@@ -29,7 +29,7 @@ for command, action in self.player.loc.commands.items():
 
     "paths": """
 for connection in self.player.loc.connections.keys():
-    print(connections)
+    print(connection)
 """,
 
     "drop": """
