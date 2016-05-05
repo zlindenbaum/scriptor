@@ -27,6 +27,11 @@ for command, action in self.player.loc.commands.items():
     print(command)
     """,
 
+    "paths": """
+for connection in self.player.loc.connections.keys():
+    print(connections)
+""",
+
     "drop": """
 if "!x!" in Misc.flatten([item.names for item in self.player.inv]):
     item = Misc.find("!x!", self.player.inv)
@@ -38,21 +43,30 @@ if "!x!" in Misc.flatten([item.names for item in self.player.inv]):
 rooms = {
     "r1":
     Room(
+        ID = "r1",
         name = "first room",
-        desc = "this is the first room",
+        desc = "This is the first room. There is |<with r1Bar>an empty table.| |<without r1Bar>a table with a bar on it.|",
         # commands = {"next": "self.player.goto(self.rooms[\"r2\"])"},
         connections = {"next": "r2"},
         items = [
             Item(
+                ID = "r1Bar",
                 names = ["a bar", "bar", "the bar"],
                 desc = "a plain white bar; it doesn't strike you as especially extraordinary",
                 takeDesc = "you slide the bar into your pocket"
+            ),
+            Item(
+                ID  = "r1Table",
+                names = ["a table", "table", "the table"],
+                desc = "a nondescript table|<with bar1> with a bar on it|.",
+                isTakeable = False
             )
         ]
     ),
 
     "r2":
     Room(
+        ID = "r2",
         name = "second room",
         desc = "this is the second room",
         # commands = {"back": "self.player.goto(self.rooms[\"r1\"])"}
