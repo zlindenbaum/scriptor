@@ -45,7 +45,7 @@ rooms = {
     Room(
         ID = "r1",
         name = "first room",
-        desc = "This is the first room. There is |<with r1Bar>an empty table.| |<without r1Bar>a table with a bar on it.|",
+        desc = "This is the first room. There is {[player has r1Bar] an empty table. [else] a table with a bar on it.}",
         # commands = {"next": "self.player.goto(self.rooms[\"r2\"])"},
         connections = {"next": "r2"},
         items = [
