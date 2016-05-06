@@ -1,0 +1,39 @@
++room1:
+
+Name: {[.lights off] A dim room [else] A bare room}
+
+Description:
+  {
+  [.lights off]
+  The darkness stretches around you, and you cannot clearly make out your surroundings. Everything is hazy and unclear, but you can barely make out the outline of a light switch in the distance.
+  [else]
+  You are in a rather spartan room. To the north there is a doorway
+  }
+
+Commands:
+  throw switch:
+    enable .lights
+    add path north -> room2
+    print .lightOnDesc
+
+Variables:
+  .lights = off
+  .lightOnDesc = The room reveals itself
+
+
++room2:
+
+Name: A palace bedroom
+
+Description:
+  This is a palace bedroom. Nothing else to see here, except the door behind you going back to the room. There's also a crowbar on the floor.
+
+Items:
+  room2Crowbar:
+    names: a crowbar, the crowbar, crowbar
+    desc: a plain iron crowbar
+    can see
+    can take
+
+Paths:
+  south -> room1
