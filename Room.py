@@ -20,12 +20,6 @@ class Room(object):
     def printDetails(self):
         print('\nRoom: ' + self.name)
 
-        # condition = pp.Suppress(pp.Literal("<")) + (pp.Literal("with") ^ pp.Literal("without")) + pp.Word(pp.alphanums) + pp.Suppress(pp.Literal(">"))
-        # conditionalText = pp.SkipTo(pp.Literal("|"))
-        # conditionBlock = pp.Group(pp.Suppress(pp.Literal("|")) + condition + conditionalText + pp.Suppress(pp.Literal("|")))
-        # descBlock = pp.Optional(pp.OneOrMore(pp.SkipTo("|") + conditionBlock)) + pp.SkipTo(pp.stringEnd)
-        # descBlock = pp.ZeroOrMore(conditionBlock | pp.SkipTo(pp.Literal("|")) | pp.SkipTo(pp.stringEnd))
-        # descBlock = pp.ZeroOrMore(conditionBlock | pp.Word(pp.printables))
 
         pDesc = Parser.desc_block.parseString(self.desc)
         # print(pDesc)
